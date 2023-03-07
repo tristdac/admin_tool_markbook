@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="admin/tool/markbook/db" VERSION="20191112" COMMENT="XMLDB file for Moodle tool/markbook"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="tool_markbook" COMMENT="Used for mapping grades to Markbook">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="assid" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="instanceid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="coursecode" TYPE="char" LENGTH="15" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="unitcode" TYPE="char" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="asstype" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="data" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="Time that the assessment settings were last updated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="instancefieldidx" UNIQUE="false" FIELDS="id, instanceid, asstype"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

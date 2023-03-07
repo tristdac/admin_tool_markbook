@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/gradergroups/db" VERSION="20210130" COMMENT="XMLDB file for Moodle tool/markbook"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_gradergroups" COMMENT="Used for mapping group notifications to group graders">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="assid" TYPE="int" LENGTH="5" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="instanceid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="coursecode" TYPE="char" LENGTH="15" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="groups" TYPE="varchar" LENGTH="512" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="Time that the assessment settings were last updated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="instancefieldidx" UNIQUE="false" FIELDS="id, instanceid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
